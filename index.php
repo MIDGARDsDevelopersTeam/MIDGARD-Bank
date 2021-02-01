@@ -1,3 +1,11 @@
+<?php
+require('config.php');
+$user = $_COOKIE['user'];
+$query = mysqli_query($mysql_link, "SELECT * FROM users WHERE token = '$user'");
+if (mysqli_fetch_assoc($query) == NULL){
+	header('Location: http://'.$_SERVER['HTTP_HOST'].'/register.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <!--begin::Head-->
