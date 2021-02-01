@@ -1,3 +1,13 @@
+<?php
+require('config.php');
+$user = $_COOKIE['user'];
+$query = mysqli_query($mysql_link, "SELECT * FROM users WHERE token = '$user'");
+$user_logged = mysqli_fetch_assoc($query);
+
+if ($user_logged == NULL){
+	header('Location: http://'.$_SERVER['HTTP_HOST'].'/login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <!--begin::Head-->
@@ -698,7 +708,7 @@
     <!--begin::Header Mobile-->
     <div id="kt_header_mobile" class="header-mobile header-mobile-fixed">
       <!--begin::Logo-->
-      <a href="https://preview.keenthemes.com/metronic/demo10/index.html">
+      <a href="https://preview.keenthemes.com/metronic/demo10/index.php">
         <img alt="Logo" src="./assets_new/logo-letter-1.png" class="logo-default max-h-30px">
       </a>
       <!--end::Logo-->
@@ -745,7 +755,7 @@
           <!--begin::Brand-->
           <div class="aside-brand d-flex flex-column align-items-center flex-column-auto py-9">
             <!--begin::Logo-->
-            <div class="btn p-0 symbol symbol-40 symbol-success" href="/metronic/demo10/index.html" id="kt_quick_user_toggle">
+            <div class="btn p-0 symbol symbol-40 symbol-success" href="/metronic/demo10/index.php" id="kt_quick_user_toggle">
               <div class="symbol-label">
                 <img alt="Logo" src="./assets_new/007-boy-2.svg" class="h-75 align-self-end">
               </div>
@@ -759,7 +769,7 @@
             <ul class="nav flex-column">
               <!--begin::Item-->
               <li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="Главная">
-                <a href="index.html" class="nav-link btn btn-icon btn-lg btn-borderless">
+                <a href="index.php" class="nav-link btn btn-icon btn-lg btn-borderless">
                   <span class="svg-icon svg-icon-xxl">
                     <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -776,7 +786,7 @@
               <!--end::Item-->
               <!--begin::Item-->
               <li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="История переводов">
-                <a href="table.html" class="nav-link btn btn-icon btn-lg btn-borderless active">
+                <a href="table.php" class="nav-link btn btn-icon btn-lg btn-borderless active">
                   <span class="svg-icon svg-icon-xxl">
                     <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Communication/Group.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -993,7 +1003,7 @@
           <!--begin::Aside Secondary Content-->
           <div class="sidebar-content flex-column-fluid pb-10 pt-9 px-5 px-lg-10">
             <!--begin::Stats Widget 13-->
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="card card-custom bg-danger bg-hover-state-danger card-shadowless gutter-b">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="card card-custom bg-danger bg-hover-state-danger card-shadowless gutter-b">
               <!--begin::Body-->
               <div class="card-body">
                 <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -1068,7 +1078,7 @@
       <div class="offcanvas-header d-flex align-items-center justify-content-between pb-10" style="" kt-hidden-height="56">
         <h3 class="font-weight-bold m-0">Quick Actions 
         <small class="text-muted font-size-sm ml-2">finance &amp; reports</small></h3>
-        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_actions_close">
+        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_actions_close">
           <i class="ki ki-close icon-xs text-muted"></i>
         </a>
       </div>
@@ -1078,7 +1088,7 @@
         <div class="row gutter-b">
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Shopping/Euro.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1096,7 +1106,7 @@
           <!--end::Item-->
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Communication/Mail-attachment.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1116,7 +1126,7 @@
         <div class="row gutter-b">
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Shopping/Box2.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1134,7 +1144,7 @@
           <!--end::Item-->
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Communication/Group.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1154,7 +1164,7 @@
         <div class="row gutter-b">
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Shopping/Chart-bar1.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1174,7 +1184,7 @@
           <!--end::Item-->
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Design/Color-profile.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1194,7 +1204,7 @@
         <div class="row">
           <!--begin::Item-->
           <div class="col-6">
-            <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
+            <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-block btn-light btn-hover-primary text-dark-50 text-center py-10 px-5">
               <span class="svg-icon svg-icon-3x svg-icon-primary m-0">
                 <!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Shopping/Euro.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1234,11 +1244,11 @@
             <i class="symbol-badge bg-success"></i>
           </div>
           <div class="d-flex flex-column">
-            <a class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{user[1]}}</a>
+            <a class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $user_logged['nickname'] ?></a>
             <div class="navi mt-2">
               <a class="navi-item">
                 <span class="navi-link p-0 pb-2">
-                  <span class="navi-text text-muted text-hover-primary">{{user[2]}}</span>
+                  <span class="navi-text text-muted text-hover-primary"><?php echo $user_logged['email'] ?></span>
                 </span>
               </a>
               <a href="logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Выйти</a>
@@ -1288,17 +1298,17 @@
       <div class="offcanvas-header offcanvas-header-navs d-flex align-items-center justify-content-between mb-5" style="" kt-hidden-height="44">
         <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-primary flex-grow-1 px-10" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="https://preview.keenthemes.com/metronic/demo10/index.html#kt_quick_panel_logs">Audit Logs</a>
+            <a class="nav-link active" data-toggle="tab" href="https://preview.keenthemes.com/metronic/demo10/index.php#kt_quick_panel_logs">Audit Logs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="https://preview.keenthemes.com/metronic/demo10/index.html#kt_quick_panel_notifications">Notifications</a>
+            <a class="nav-link" data-toggle="tab" href="https://preview.keenthemes.com/metronic/demo10/index.php#kt_quick_panel_notifications">Notifications</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="https://preview.keenthemes.com/metronic/demo10/index.html#kt_quick_panel_settings">Settings</a>
+            <a class="nav-link" data-toggle="tab" href="https://preview.keenthemes.com/metronic/demo10/index.php#kt_quick_panel_settings">Settings</a>
           </li>
         </ul>
         <div class="offcanvas-close mt-n1 pr-5">
-          <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_panel_close">
+          <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_panel_close">
             <i class="ki ki-close icon-xs text-muted"></i>
           </a>
         </div>
@@ -1320,7 +1330,7 @@
                   </span>
                 </div>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top Authors</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Top Authors</a>
                   <span class="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span class="btn btn-sm btn-light font-weight-bolder py-1 my-lg-0 my-2 text-dark-50">+82$</span>
@@ -1334,7 +1344,7 @@
                   </span>
                 </div>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Popular Authors</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Popular Authors</a>
                   <span class="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+280$</span>
@@ -1348,7 +1358,7 @@
                   </span>
                 </div>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">New Users</a>
                   <span class="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1362,7 +1372,7 @@
                   </span>
                 </div>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Active Customers</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Active Customers</a>
                   <span class="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1376,7 +1386,7 @@
                   </span>
                 </div>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Bestseller Theme</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-bolder text-dark-75 text-hover-primary font-size-lg mb-1">Bestseller Theme</a>
                   <span class="text-muted font-weight-bold">Most Successful Fellas</span>
                 </div>
                 <span class="btn btn-sm btn-light font-weight-bolder my-lg-0 my-2 py-1 text-dark-50">+4500$</span>
@@ -1403,7 +1413,7 @@
                   </span>
                 </span>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose persuade</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Another purpose persuade</a>
                   <span class="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
                 <span class="font-weight-bolder text-warning py-1 font-size-lg">+28%</span>
@@ -1425,7 +1435,7 @@
                   </span>
                 </span>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to people</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-normal text-dark-75 text-hover-primary font-size-lg mb-1">Would be to people</a>
                   <span class="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
                 <span class="font-weight-bolder text-success py-1 font-size-lg">+50%</span>
@@ -1447,7 +1457,7 @@
                   </span>
                 </span>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be to persuade</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">Purpose would be to persuade</a>
                   <span class="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
                 <span class="font-weight-bolder text-danger py-1 font-size-lg">-27%</span>
@@ -1471,7 +1481,7 @@
                   </span>
                 </span>
                 <div class="d-flex flex-column flex-grow-1 mr-2">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best product</a>
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="font-weight-normel text-dark-75 text-hover-primary font-size-lg mb-1">The best product</a>
                   <span class="text-muted font-size-sm">Due in 2 Days</span>
                 </div>
                 <span class="font-weight-bolder text-info py-1 font-size-lg">+8%</span>
@@ -1486,7 +1496,7 @@
             <!--begin::Nav-->
             <div class="navi navi-icon-circle navi-spacer-x-0">
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1501,7 +1511,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1516,7 +1526,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1531,7 +1541,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1546,7 +1556,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1561,7 +1571,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1576,7 +1586,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1591,7 +1601,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1606,7 +1616,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1621,7 +1631,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1636,7 +1646,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1651,7 +1661,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1666,7 +1676,7 @@
               </a>
               <!--end::Item-->
               <!--begin::Item-->
-              <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-item">
+              <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-item">
                 <div class="navi-link rounded">
                   <div class="symbol symbol-50 mr-3">
                     <div class="symbol-label">
@@ -1839,7 +1849,7 @@
                     <!--begin::Navigation-->
                     <ul class="navi navi-hover py-5">
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-drop"></i>
                           </span>
@@ -1847,7 +1857,7 @@
                         </a>
                       </li>
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-list-3"></i>
                           </span>
@@ -1855,7 +1865,7 @@
                         </a>
                       </li>
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-rocket-1"></i>
                           </span>
@@ -1866,7 +1876,7 @@
                         </a>
                       </li>
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-bell-2"></i>
                           </span>
@@ -1874,7 +1884,7 @@
                         </a>
                       </li>
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-gear"></i>
                           </span>
@@ -1883,7 +1893,7 @@
                       </li>
                       <li class="navi-separator my-3"></li>
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-magnifier-tool"></i>
                           </span>
@@ -1891,7 +1901,7 @@
                         </a>
                       </li>
                       <li class="navi-item">
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="navi-link">
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="navi-link">
                           <span class="navi-icon">
                             <i class="flaticon2-bell-2"></i>
                           </span>
@@ -1934,7 +1944,7 @@
                         <img alt="Pic" src="./assets_new/300_12.jpg">
                       </div>
                       <div>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                         <span class="text-muted font-size-sm">2 Hours</span>
                       </div>
                     </div>
@@ -1946,7 +1956,7 @@
                     <div class="d-flex align-items-center">
                       <div>
                         <span class="text-muted font-size-sm">3 minutes</span>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                       </div>
                       <div class="symbol symbol-circle symbol-40 ml-3">
                         <img alt="Pic" src="./assets_new/300_21.jpg">
@@ -1962,7 +1972,7 @@
                         <img alt="Pic" src="./assets_new/300_21.jpg">
                       </div>
                       <div>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                         <span class="text-muted font-size-sm">40 seconds</span>
                       </div>
                     </div>
@@ -1974,7 +1984,7 @@
                     <div class="d-flex align-items-center">
                       <div>
                         <span class="text-muted font-size-sm">Just now</span>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                       </div>
                       <div class="symbol symbol-circle symbol-40 ml-3">
                         <img alt="Pic" src="./assets_new/300_21.jpg">
@@ -1990,12 +2000,12 @@
                         <img alt="Pic" src="./assets_new/300_12.jpg">
                       </div>
                       <div>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                         <span class="text-muted font-size-sm">40 seconds</span>
                       </div>
                     </div>
                     <div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">You can unwatch this repository immediately by clicking here: 
-                    <a href="https://preview.keenthemes.com/metronic/demo10/index.html#">https://github.com</a></div>
+                    <a href="https://preview.keenthemes.com/metronic/demo10/index.php#">https://github.com</a></div>
                   </div>
                   <!--end::Message In-->
                   <!--begin::Message Out-->
@@ -2003,7 +2013,7 @@
                     <div class="d-flex align-items-center">
                       <div>
                         <span class="text-muted font-size-sm">Just now</span>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                       </div>
                       <div class="symbol symbol-circle symbol-40 ml-3">
                         <img alt="Pic" src="./assets_new/300_21.jpg">
@@ -2019,7 +2029,7 @@
                         <img alt="Pic" src="./assets_new/300_12.jpg">
                       </div>
                       <div>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
                         <span class="text-muted font-size-sm">40 seconds</span>
                       </div>
                     </div>
@@ -2031,7 +2041,7 @@
                     <div class="d-flex align-items-center">
                       <div>
                         <span class="text-muted font-size-sm">Just now</span>
-                        <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
+                        <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                       </div>
                       <div class="symbol symbol-circle symbol-40 ml-3">
                         <img alt="Pic" src="./assets_new/300_21.jpg">
@@ -2052,10 +2062,10 @@
               <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
               <div class="d-flex align-items-center justify-content-between mt-5">
                 <div class="mr-3">
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-clean btn-icon btn-md mr-1">
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-clean btn-icon btn-md mr-1">
                     <i class="flaticon2-photograph icon-lg"></i>
                   </a>
-                  <a href="https://preview.keenthemes.com/metronic/demo10/index.html#" class="btn btn-clean btn-icon btn-md">
+                  <a href="https://preview.keenthemes.com/metronic/demo10/index.php#" class="btn btn-clean btn-icon btn-md">
                     <i class="flaticon2-photo-camera icon-lg"></i>
                   </a>
                 </div>

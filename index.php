@@ -2,7 +2,9 @@
 require('config.php');
 $user = $_COOKIE['user'];
 $query = mysqli_query($mysql_link, "SELECT * FROM users WHERE token = '$user'");
-if (mysqli_fetch_assoc($query) == NULL){
+$user_logged = mysqli_fetch_assoc($query);
+
+if ($user_logged == NULL){
 	header('Location: http://'.$_SERVER['HTTP_HOST'].'/login.php');
 }
 ?>
@@ -123,7 +125,7 @@ if (mysqli_fetch_assoc($query) == NULL){
 							<!--end::Item-->
 							<!--begin::Item-->
 							<li class="nav-item mb-2" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="" data-original-title="История переводов">
-								<a href="table.html" class="nav-link btn btn-icon btn-lg btn-borderless">
+								<a href="table.php" class="nav-link btn btn-icon btn-lg btn-borderless">
 									<span class="svg-icon svg-icon-xxl">
 										<!--begin::Svg Icon | path:/metronic/theme/html/demo10/dist/assets/media/svg/icons/Communication/Group.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -696,11 +698,11 @@ if (mysqli_fetch_assoc($query) == NULL){
 						<i class="symbol-badge bg-success"></i>
 					</div>
 					<div class="d-flex flex-column">
-						<a class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{user[1]}}</a>
+						<a class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $user_logged['nickname'] ?></a>
 						<div class="navi mt-2">
 							<a class="navi-item">
 								<span class="navi-link p-0 pb-2">
-									<span class="navi-text text-muted text-hover-primary">{{user[2]}}</span>
+									<span class="navi-text text-muted text-hover-primary"><?php echo $user_logged['email'] ?></span>
 								</span>
 							</a>
 							<a href="logout" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Выйти</a>
