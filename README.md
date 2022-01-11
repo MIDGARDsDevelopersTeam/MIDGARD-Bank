@@ -1,1 +1,1 @@
-# MIDGARD-Bank
+#  Старый банк RolePlay сервера
